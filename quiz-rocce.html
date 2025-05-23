@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Quiz Roccioso Interattivo&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f0f9ff; /* Light blue background */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1e3a8a; /* Dark blue text */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.kahoot-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 900px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 2rem auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #bfdbfe; /* Light blue border */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6; /* Blue */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover:not(:disabled) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2563eb;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:disabled {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #9ca3af; /* Gray for disabled */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #60a5fa; /* Lighter blue */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-outline {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-outline:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: flex-start; /* Align text to the left */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem; /* Increased padding for better touch */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem; /* Slightly larger font */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn.selected {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #1e3a8a; /* Dark blue border for selected */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn.correct {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #10b981 !important; /* Green */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #059669 !important;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn.incorrect {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ef4444 !important; /* Red */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #dc2626 !important;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn:disabled {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.timer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ef4444; /* Red for timer */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #dbeafe; /* Very light blue */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e0e0e0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 9999px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>/* background-color set by JS */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 9999px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.2s linear, background-color 0.5s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Colors for answer buttons */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-colors {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn-red { background-color: #fee2e2; color: #991b1b; } .answer-btn-red:hover:not(:disabled) { background-color: #fecaca; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn-blue { background-color: #dbeafe; color: #1e40af; } .answer-btn-blue:hover:not(:disabled) { background-color: #bfdbfe; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn-green { background-color: #d1fae5; color: #065f46; } .answer-btn-green:hover:not(:disabled) { background-color: #a7f3d0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.answer-btn-yellow { background-color: #fef3c7; color: #92400e; } .answer-btn-yellow:hover:not(:disabled) { background-color: #fde68a; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.icon-shape {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.shape-triangle { background-color: #ef4444; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); } /* Red */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.shape-diamond { background-color: #3b82f6; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); } /* Blue */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.shape-circle { background-color: #f59e0b; border-radius: 50%; } /* Yellow */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.shape-square { background-color: #10b981; } /* Green */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#allResultsContainer li {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e5e7eb; /* Tailwind gray-200 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#allResultsContainer li:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input-field {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0.75rem 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.input-field:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.error-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ef4444; /* Red for error messages */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.875rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: -0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="flex items-center justify-center min-h-screen p-4"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="kahoot-container w-full"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="userInfo" class="text-xs text-gray-500 mb-2 text-right"&gt;User ID: &lt;span id="userIdDisplay"&gt;Caricamento...&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="startScreen" class="text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl font-bold mb-4 text-blue-700"&gt;Quiz Roccioso! &lt;i class="fas fa-mountain text-yellow-500"&gt;&lt;/i&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg mb-6 text-gray-600"&gt;Metti alla prova la tua conoscenza del mondo delle rocce!&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="studentNameInput" class="input-field max-w-md mx-auto" placeholder="Inserisci il tuo nome..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="nameError" class="error-message hidden"&gt;Per favore, inserisci il tuo nome per iniziare.&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="startButton" class="btn btn-primary text-xl px-8 py-4" disabled&gt;Avvia il Gioco!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="showAllResultsButton" class="btn btn-outline mt-4 block mx-auto"&gt;Visualizza Tutti i Risultati&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="gameScreen" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="question-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-between items-center mb-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="questionCounter" class="text-sm font-semibold text-blue-600"&gt;Domanda 1/15&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="timer" id="timerDisplay"&gt;30&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 id="questionText" class="text-xl font-semibold text-center"&gt;Testo della domanda...&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="progress-bar-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="timeProgressBar" class="progress-bar"&gt;&lt;/div&gt; &lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="answerOptions" class="answer-colors mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="nextQuestionButton" class="btn btn-secondary w-full mt-6 hidden"&gt;Prossima Domanda&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="endScreen" class="hidden text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-4 text-blue-700"&gt;Quiz Terminato! &lt;i class="fas fa-trophy text-yellow-500"&gt;&lt;/i&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="playerNameEnd" class="text-xl font-semibold mb-1"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="finalScore" class="text-2xl mb-1"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="correctAnswersSummary" class="text-lg mb-4"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="feedbackMessage" class="text-lg mb-6"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="restartButton" class="btn btn-primary text-lg"&gt;Rigioca&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="allResultsScreen" class="hidden mt-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-6 text-center text-blue-700"&gt;Risultati Complessivi Studenti &lt;i class="fas fa-clipboard-list"&gt;&lt;/i&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="allResultsContainer" class="space-y-3 bg-gray-50 p-4 rounded-lg max-h-96 overflow-y-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="backToStartButton" class="btn btn-secondary mt-6 w-full"&gt;Torna alla Home&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Import Firebase SDK modules</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getFirestore, collection, addDoc, getDocs, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Firebase configuration (provided by Canvas environment)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const firebaseConfigJson = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let firebaseConfig = {};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>firebaseConfig = JSON.parse(firebaseConfigJson);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (Object.keys(firebaseConfig).length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>console.warn("Firebase config is empty. Using placeholder for local testing. Firestore features will not work.");</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>// Example placeholder: firebaseConfig = { apiKey: "AIza...", authDomain: "...", projectId: "..." };</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>console.error("Error parsing Firebase config:", e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Handle error or use a default config for local testing</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-quiz-app-id'; // App ID from Canvas</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Firebase app, auth, and db instances</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let app;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let auth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let db;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentUserId = null; // To store the current user's ID</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentStudentName = ""; // Variable to store student's name</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initialize Firebase and handle authentication</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function initializeFirebase() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Check if Firebase config is available</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (Object.keys(firebaseConfig).length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>console.error("Firebase configuration is missing. App functionality requiring Firebase will be limited.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>document.getElementById('userIdDisplay').textContent = 'Firebase non configurato';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return Promise.resolve(null); // Resolve with null if config is missing</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>auth = getAuth(app);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>db = getFirestore(app);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setLogLevel('debug'); // Enable Firestore debug logging</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Optional: Persist authentication state</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await setPersistence(auth, browserLocalPersistence);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Listen for authentication state changes</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return new Promise((resolve) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>onAuthStateChanged(auth, async (user) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (user) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>// User is signed in</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>console.log("User is signed in:", user.uid);</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>currentUserId = user.uid;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>// User is signed out, attempt to sign in</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>console.log("User is signed out. Attempting to sign in...");</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>if (typeof __initial_auth_token !== 'undefined' &amp;&amp; __initial_auth_token) {</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>// Sign in with custom token if available (Canvas environment)</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>await signInWithCustomToken(auth, __initial_auth_token);</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>console.log("Signed in with custom token.");</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>// Fallback to anonymous sign-in</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>await signInAnonymously(auth);</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>console.log("Signed in anonymously.");</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>currentUserId = auth.currentUser ? auth.currentUser.uid : crypto.randomUUID();</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>console.error("Error during sign-in:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>currentUserId = crypto.randomUUID(); // Fallback to a random ID</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Display User ID (or N/A if not available)</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>document.getElementById('userIdDisplay').textContent = currentUserId || 'N/A';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>resolve(currentUserId);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Firebase initialization error:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentUserId = crypto.randomUUID(); // Fallback to a random ID</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('userIdDisplay').textContent = currentUserId + ' (Firebase init failed)';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return Promise.resolve(currentUserId); // Still resolve, but with a fallback ID</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Call initializeFirebase when the script loads</p>
+<p class="p1"><span class="Apple-converted-space">        </span>initializeFirebase().then(uid =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>console.log("Firebase initialized, User ID:", uid);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Any logic that depends on Firebase being initialized can go here</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Quiz questions data</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Cos'è un minerale secondo la definizione geologica?", options: ["Un aggregato di rocce diverse.","Un corpo inorganico, naturale, solido, con composizione chimica definita e struttura cristallina.","Qualsiasi sostanza solida trovata sulla Terra.","Un liquido solidificato rapidamente."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Qual è l'unità strutturale fondamentale di tutti i minerali silicati?", options: ["La molecola d'acqua (H2O).","Il cubo di salgemma (NaCl).","Il tetraedro silicio-ossigeno (SiO4)4-.","Un atomo di carbonio."], answer: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Le rocce magmatiche intrusive (o plutoniche) si formano da:", options: ["Solidificazione rapida della lava in superficie.","Solidificazione lenta del magma in profondità.","Accumulo di ceneri vulcaniche.","Trasformazione di rocce preesistenti."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Una struttura porfirica in una roccia magmatica indica:", options: ["Un raffreddamento estremamente rapido e solo vetro.","Un raffreddamento molto lento con cristalli tutti grandi.","Un raffreddamento in due o più fasi (lento in profondità, poi più rapido).","Una roccia formata da frammenti di altre rocce."], answer: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Il granito è l'equivalente intrusivo di quale roccia effusiva?", options: ["Basalto", "Riolite", "Andesite", "Gabbro"], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Quale processo NON è una tappa fondamentale del processo sedimentario?", options: ["Degradazione meteorica ed erosione", "Trasporto", "Fusione parziale", "Sedimentazione e Diagenesi"], answer: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Le rocce clastiche sono classificate principalmente in base a:", options: ["Colore dei clasti", "Dimensione dei clasti", "Presenza di fossili", "Composizione chimica del cemento"], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Il salgemma e il gesso sono esempi di rocce sedimentarie formatesi per:", options: ["Accumulo di scheletri di organismi.","Precipitazione da acque in evaporazione (evaporiti).","Cementazione di sabbie vulcaniche.","Metamorfismo di rocce argillose."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Il metamorfismo avviene quando una roccia preesistente (protolito) subisce trasformazioni:", options: ["Allo stato fuso, per poi solidificare.","Allo stato solido, per variazioni di T e/o P.","Solo per azione dell'acqua superficiale.","Esclusivamente per frantumazione meccanica."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Quale tipo di metamorfismo è tipicamente associato alla formazione delle catene montuose (orogenesi)?", options: ["Metamorfismo di Contatto", "Metamorfismo Dinamico", "Metamorfismo Regionale", "Metamorfismo da Impatto"], answer: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "La scistosità è una struttura tipica delle rocce metamorfiche che indica:", options: ["Presenza di grossi cristalli equidimensionali.","Facile divisibilità in lastre per orientazione di minerali lamellari.","Completa fusione e ricristallizzazione.","Presenza di numerosi fossili."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Il marmo deriva dal metamorfismo di quale roccia preesistente?", options: ["Arenaria", "Argilla", "Basalto", "Calcare o dolomia"], answer: 3 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Il ciclo litogenetico descrive come:", options: ["Solo le rocce magmatiche si trasformano.","I materiali della litosfera vengano continuamente trasformati e riciclati.","Le montagne si formano e vengono erose.","I minerali si formano esclusivamente da magma."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "I minerali silicati sialici (o felsici) sono generalmente:", options: ["Ricchi di Fe e Mg, di colore scuro e densità alta.","Ricchi di Si e Al, di colore chiaro e densità bassa.","Composti solo da silicio.","Trovati solo nelle rocce sedimentarie."], answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">             </span>{ question: "Cosa sono le migmatiti?", options: ["Rocce sedimentarie molto fini.","Un tipo di roccia magmatica intrusiva.","Rocce formate da fusione parziale (ultrametamorfismo), con parti fuse e non fuse.","Rocce formate da impatti meteoritici."], answer: 2 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// DOM element references</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const startScreen = document.getElementById('startScreen');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gameScreen = document.getElementById('gameScreen');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const endScreen = document.getElementById('endScreen');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const allResultsScreen = document.getElementById('allResultsScreen');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const studentNameInput = document.getElementById('studentNameInput');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const nameErrorElement = document.getElementById('nameError');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const startButton = document.getElementById('startButton');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questionCounterElement = document.getElementById('questionCounter');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questionTextElement = document.getElementById('questionText');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answerOptionsElement = document.getElementById('answerOptions');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const nextQuestionButton = document.getElementById('nextQuestionButton');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const playerNameEndElement = document.getElementById('playerNameEnd');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const finalScoreElement = document.getElementById('finalScore');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const correctAnswersSummaryElement = document.getElementById('correctAnswersSummary');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const feedbackMessageElement = document.getElementById('feedbackMessage');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const restartButton = document.getElementById('restartButton');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const timerDisplayElement = document.getElementById('timerDisplay');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const timeProgressBarElement = document.getElementById('timeProgressBar');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const showAllResultsButton = document.getElementById('showAllResultsButton');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const backToStartButton = document.getElementById('backToStartButton');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Game state variables</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentQuestionIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let correctAnswersCount = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let timer; // Timer interval ID</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const MAX_TIME_PER_QUESTION = 30; // seconds for each question</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let timeLeft = MAX_TIME_PER_QUESTION;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answerButtonClasses = ['answer-btn-red', 'answer-btn-blue', 'answer-btn-yellow', 'answer-btn-green'];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answerShapes = ['shape-triangle', 'shape-diamond', 'shape-square', 'shape-circle'];<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for student name input</p>
+<p class="p1"><span class="Apple-converted-space">        </span>studentNameInput.addEventListener('input', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (studentNameInput.value.trim() !== "") {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>startButton.disabled = false; // Enable start button if name is entered</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nameErrorElement.classList.add('hidden'); // Hide error message</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>startButton.disabled = true; // Disable start button if name is empty</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for start button</p>
+<p class="p1"><span class="Apple-converted-space">        </span>startButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentStudentName = studentNameInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentStudentName === "") {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nameErrorElement.classList.remove('hidden'); // Show error if name is empty</p>
+<p class="p1"><span class="Apple-converted-space">                </span>startButton.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>nameErrorElement.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startGame();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for next question button</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nextQuestionButton.addEventListener('click', loadNextQuestion);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for restart button</p>
+<p class="p1"><span class="Apple-converted-space">        </span>restartButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>studentNameInput.value = ""; // Clear name input</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startButton.disabled = true; // Disable start button</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Switch UI to the start screen</p>
+<p class="p1"><span class="Apple-converted-space">            </span>endScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startScreen.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// startGame() will be called by the startButton click logic after name input</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for showing all results</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showAllResultsButton.addEventListener('click', async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Hide other screens and show the results screen</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>endScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>allResultsScreen.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>await loadAndDisplayAllResults(); // Load and display results from Firestore</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listener for going back to the start screen from results</p>
+<p class="p1"><span class="Apple-converted-space">        </span>backToStartButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>allResultsScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startScreen.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to start the game</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>correctAnswersCount = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Switch UI to game screen</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>endScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>allResultsScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameScreen.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>nextQuestionButton.classList.add('hidden'); // Hide next button initially</p>
+<p class="p1"><span class="Apple-converted-space">            </span>displayQuestion(); // Display the first question</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to display the current question</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function displayQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resetTimer(); // Reset and start the timer for the new question</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentQuestion = questions[currentQuestionIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionCounterElement.textContent = `Domanda ${currentQuestionIndex + 1}/${questions.length}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionTextElement.textContent = currentQuestion.question;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>answerOptionsElement.innerHTML = ''; // Clear previous answer options</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Create and append answer buttons</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestion.options.forEach((option, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const button = document.createElement('button');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.classList.add('btn', 'answer-btn', answerButtonClasses[index % answerButtonClasses.length]);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const shapeDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>shapeDiv.classList.add('icon-shape', answerShapes[index % answerShapes.length]);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.appendChild(shapeDiv);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const textSpan = document.createElement('span');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>textSpan.textContent = option;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.appendChild(textSpan);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.addEventListener('click', () =&gt; selectAnswer(index, timeLeft)); // Pass timeLeft to calculate score</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answerOptionsElement.appendChild(button);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startTimer(); // Start the countdown timer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to handle answer selection</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function selectAnswer(selectedIndex, timeRemaining) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clearInterval(timer); // Stop the timer for the current question</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentQuestion = questions[currentQuestionIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const buttons = answerOptionsElement.querySelectorAll('.answer-btn');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let questionPoints = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (selectedIndex === currentQuestion.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>correctAnswersCount++;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Calculate points: 500 base + up to 500 time bonus</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const basePoints = 500;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const timeBonus = Math.round(500 * (timeRemaining / MAX_TIME_PER_QUESTION));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionPoints = basePoints + timeBonus;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score += questionPoints;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Visual feedback for selected, correct, and incorrect answers</p>
+<p class="p1"><span class="Apple-converted-space">            </span>buttons.forEach((btn, idx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>btn.disabled = true; // Disable all answer buttons</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (idx === currentQuestion.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.add('correct'); // Highlight correct answer</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (idx === selectedIndex &amp;&amp; idx !== currentQuestion.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.add('incorrect'); // Highlight incorrect selection</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>if (idx === selectedIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.add('selected'); // Mark the selected button</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>nextQuestionButton.classList.remove('hidden'); // Show the next question button</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to load the next question or end the game</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function loadNextQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentQuestionIndex &lt; questions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>displayQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nextQuestionButton.classList.add('hidden'); // Hide next button for the new question</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>// Reset button states for the new question</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>const buttons = answerOptionsElement.querySelectorAll('.answer-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>buttons.forEach(btn =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>btn.classList.remove('correct', 'incorrect', 'selected');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>btn.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showEndScreen(); // If no more questions, show the end screen</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to display the end screen with results</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function showEndScreen() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameScreen.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>endScreen.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playerNameEndElement.textContent = `Complimenti, ${currentStudentName}!`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>finalScoreElement.textContent = `Punteggio Finale: ${score} punti`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>correctAnswersSummaryElement.textContent = `Risposte Corrette: ${correctAnswersCount}/${questions.length}`;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Provide feedback based on performance</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let message = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const percentageCorrect = (correctAnswersCount / questions.length) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (percentageCorrect &gt;= 90) message = "Eccezionale! Sei un vero geologo! 🌋";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (percentageCorrect &gt;= 70) message = "Ottimo lavoro! Conosci bene le rocce! 💎";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else if (percentageCorrect &gt;= 50) message = "Buon tentativo! Continua a studiare! 📚";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>else message = "Non mollare! Riprova e impara di più! 💪";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackMessageElement.textContent = message;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>await saveScoreToFirestore(); // Save the score to Firestore</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to save the score to Firestore</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function saveScoreToFirestore() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Ensure Firestore DB and User ID are available</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db || !currentUserId) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Firestore DB or User ID not available for saving score. Ensure Firebase is initialized correctly.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Optionally, inform the user that the score could not be saved.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Define the path for the results collection in Firestore</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Public path allows all authenticated users to write (as per typical Kahoot-like game)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Ensure your Firestore rules allow this. For this example, using a public path.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resultsCollectionPath = `/artifacts/${appId}/public/data/quizResults`;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await addDoc(collection(db, resultsCollectionPath), {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>studentName: currentStudentName,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>userId: currentUserId,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>score: score, // This now includes time bonus</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>correctAnswersCount: correctAnswersCount,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>totalQuestions: questions.length,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>percentage: parseFloat(((correctAnswersCount / questions.length) * 100).toFixed(2)),</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>timestamp: new Date().toISOString() // ISO string for easy sorting</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.log("Score saved to Firestore.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error saving score to Firestore:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Optionally, inform the user about the error.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to load and display all results from Firestore</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function loadAndDisplayAllResults() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const allResultsContainer = document.getElementById('allResultsContainer');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>allResultsContainer.innerHTML = '&lt;p class="text-center py-4"&gt;Caricamento risultati...&lt;/p&gt;'; // Loading message</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!db) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>allResultsContainer.innerHTML = '&lt;p class="text-center text-red-500 py-4"&gt;Errore: Database non inizializzato. Assicurati che la configurazione di Firebase sia corretta.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resultsCollectionPath = `/artifacts/${appId}/public/data/quizResults`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const querySnapshot = await getDocs(collection(db, resultsCollectionPath));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (querySnapshot.empty) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>allResultsContainer.innerHTML = '&lt;p class="text-center py-4"&gt;Nessun risultato ancora registrato.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let resultsHTML = '&lt;ul class="divide-y divide-gray-200"&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const resultsData = querySnapshot.docs.map(doc =&gt; ({id: doc.id, ...doc.data()}));</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Sort results: by score (descending), then by timestamp (newest first for ties)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsData.sort((a, b) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (b.score !== a.score) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return b.score - a.score;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return new Date(b.timestamp) - new Date(a.timestamp);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Build HTML for each result entry</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsData.forEach(docData =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>resultsHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="py-3 px-1 hover:bg-gray-100 rounded-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-md font-semibold text-blue-700"&gt;${docData.studentName || 'Nome non specificato'}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm text-gray-700"&gt;Punteggio: ${docData.score} punti&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm text-gray-600"&gt;Corrette: ${docData.correctAnswersCount}/${docData.totalQuestions} (${docData.percentage}%)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-gray-500"&gt;User ID: ${docData.userId}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-gray-500"&gt;Data: ${new Date(docData.timestamp).toLocaleString('it-IT', { dateStyle: 'short', timeStyle: 'short' })}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsHTML += '&lt;/ul&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>allResultsContainer.innerHTML = resultsHTML;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error fetching all results:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>allResultsContainer.innerHTML = `&lt;p class="text-center text-red-500 py-4"&gt;Errore nel caricamento dei risultati: ${error.message}. Controlla la console per dettagli.&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to start the question timer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timeLeft = MAX_TIME_PER_QUESTION;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timerDisplayElement.textContent = timeLeft;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timeProgressBarElement.style.width = '100%';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timeProgressBarElement.style.backgroundColor = '#10b981'; // Start with green</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>timer = setInterval(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>timeLeft--;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>timerDisplayElement.textContent = timeLeft;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const progressWidth = (timeLeft / MAX_TIME_PER_QUESTION) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>timeProgressBarElement.style.width = `${progressWidth}%`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Change progress bar color based on time left</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (timeLeft &lt;= MAX_TIME_PER_QUESTION * 0.33) timeProgressBarElement.style.backgroundColor = '#ef4444'; // Red</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (timeLeft &lt;= MAX_TIME_PER_QUESTION * 0.66) timeProgressBarElement.style.backgroundColor = '#f59e0b'; // Yellow</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else timeProgressBarElement.style.backgroundColor = '#10b981'; // Green</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (timeLeft &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>clearInterval(timer); // Stop timer when time is up</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>handleTimeOut(); // Handle timeout</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to handle question timeout</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function handleTimeOut() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const buttons = answerOptionsElement.querySelectorAll('.answer-btn');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>buttons.forEach(btn =&gt; btn.disabled = true); // Disable answer buttons</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentQuestion = questions[currentQuestionIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Highlight the correct answer even on timeout</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (buttons.length &gt; currentQuestion.answer &amp;&amp; buttons[currentQuestion.answer]) {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                 </span>buttons[currentQuestion.answer].classList.add('correct');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionTextElement.textContent = "Tempo scaduto! La risposta corretta era evidenziata.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>nextQuestionButton.classList.remove('hidden'); // Show next button</p>
+<p class="p1"><span class="Apple-converted-space">             </span>// No points are awarded for a timeout</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to reset the timer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clearInterval(timer);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
